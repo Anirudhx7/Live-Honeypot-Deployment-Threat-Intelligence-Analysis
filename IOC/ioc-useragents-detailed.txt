@@ -1,0 +1,10 @@
+Mozilla/5.0 (Linux; Mirai) | IoT botnet propagation | Credential brute force
+curl/7.58.0 | Automated scanning | Script-based recon
+Wget/1.19.4 (linux-gnu) | Malware downloader | Payload retrieval
+python-requests/2.25.1 | Recon toolkit | Custom exploit scripts
+Go-http-client/1.1 | Masscan wrapper | Go-based scanners
+masscan/1.3 | High-speed network scanning | Reconnaissance
+Hello, World | Dumb IoT bot | Mirai derivative
+Mozilla/5.0 (X11; Linux i686) Gecko | Obfuscated automated bot | Fake browser UA
+Mozilla/4.0 (compatible; MSIE 6.0) | Legacy spoofing | Evasion attempt
+botnet-probe/1.0 | C2 scanner | Bot coordination traffic
