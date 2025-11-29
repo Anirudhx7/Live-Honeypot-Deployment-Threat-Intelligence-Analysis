@@ -11,14 +11,12 @@ This project focuses on attacker behavior, botnet activity, network telemetry, a
 ### **T-Pot Landing Page**
 ![T-Pot Landing Page](https://github.com/Anirudhx7/Live-Honeypot-Deployment-Threat-Intelligence-Analysis/blob/e3dfba2dc8bb8518e0f7745afbe8aae0d8938a1d/images/tpot-landing.png)
 
-### **Service Panel**
-![Services Panel](./images/tpot-services.png)
 
 ### **Kibana Dashboards**
-![Kibana](./images/kibana-dashboard.png)
+![Kibana](https://github.com/Anirudhx7/Live-Honeypot-Deployment-Threat-Intelligence-Analysis/blob/43147a38e490e55f240184efb56664373bc6a9c6/images/kibana_a.png)
 
 ### **Attack Map**
-![Attack Map](./images/attack-map.png)
+![Attack Map](https://github.com/Anirudhx7/Live-Honeypot-Deployment-Threat-Intelligence-Analysis/blob/43147a38e490e55f240184efb56664373bc6a9c6/images/attackmap.png)
 
 > *Images above were captured from the live honeypot environment.*
 
