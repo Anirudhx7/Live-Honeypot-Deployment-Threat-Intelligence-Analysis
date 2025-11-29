@@ -9,7 +9,7 @@ This project focuses on attacker behavior, botnet activity, network telemetry, a
 ## 📸 Dashboard Previews
 
 ### **T-Pot Landing Page**
-![T-Pot Landing Page](./images/tpot-landing.png)
+![T-Pot Landing Page](images/tpot-landing.png)
 
 ### **Service Panel**
 ![Services Panel](./images/tpot-services.png)
