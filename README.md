@@ -1,129 +1,240 @@
-# Live Honeypot Deployment & Threat Intelligence Analysis
+# 🐝 Live Honeypot Deployment & Threat Intelligence Analysis  
+**T-Pot | Suricata | Elastic Stack | OSINT | Botnet Analysis**
 
-A cloud-hosted honeypot environment built using the **T-Pot multi-honeypot framework** to capture real-world attack traffic.  
-This project focuses on collecting malicious telemetry, analyzing attacker behavior, separating botnet activity from manual reconnaissance, and mapping findings to MITRE ATT&CK techniques.
-
----
-
-## 🔍 Project Overview
-
-I deployed a fully functional **T-Pot honeypot** in a cloud environment and monitored live attacks from the internet.  
-The honeypot automatically captured SSH, HTTP, SMB, and ICS traffic through multiple honeypots (Cowrie, Dionaea, etc.) and correlated logs using Suricata + Kibana dashboards.
-
-In the first 48 hours, the system logged **20,000+ intrusion attempts**.
-
-This project demonstrates:
-- Threat intelligence fundamentals  
-- Suricata alert analysis  
-- Botnet fingerprinting (Mirai)  
-- IOC extraction  
-- ELK-based visualization  
-- Cloud honeypot deployment and monitoring  
+A cloud-hosted T-Pot honeypot capturing **20,000+ real-world intrusion attempts** in 48 hours.  
+This project focuses on attacker behavior, botnet activity, network telemetry, and threat intelligence enrichment through NSM tools and the Elastic Stack.
 
 ---
 
-## 🧱 Architecture
+## 📸 Dashboard Previews
 
-- **Cloud VM (Ubuntu Server)**  
-- **T-Pot 23.x** (Cowrie, Dionaea, Suricata, Elastic Stack, Attack Map)  
-- **Suricata IDS**  
-- **Elasticsearch + Kibana dashboards**  
-- **SSH forwarder for remote analysis**  
+### **T-Pot Landing Page**
+![T-Pot Landing Page](./images/tpot-landing.png)
 
-Traffic Flow:
-Internet → Honeypots → Suricata → Logstash → Elasticsearch → Kibana → Analysis
+### **Service Panel**
+![Services Panel](./images/tpot-services.png)
 
----
+### **Kibana Dashboards**
+![Kibana](./images/kibana-dashboard.png)
 
-## 📊 Traffic Captured (First 48 Hours)
+### **Attack Map**
+![Attack Map](./images/attack-map.png)
 
-- **20,000+ total attacks**
-- **Top attack types**
-  - SSH brute force
-  - Mirai botnet scanning
-  - HTTP exploit attempts
-  - Masscan-like port sweeps
-
-- **Top origins**
-  - US, Russia, China, India  
-  (typical for IoT botnets)
+> *Images above were captured from the live honeypot environment.*
 
 ---
 
-## 🔥 Key Analyses Performed
-
-### 1. **Mirai Botnet Identification**
-Observed patterns:
-- Repeated SSH credential attempts  
-- Identical payload sequences  
-- Predictable timing intervals (botnet waves)  
-- Mirai fingerprinted User-Agents and telnet probes  
-
-### 2. **Manual Reconnaissance Detection**
-Indicators of a human attacker:
-- Irregular probing  
-- Unique commands  
-- Targeted enumeration  
-
-### 3. **Suricata Alert Analysis**
-Common signatures:
-- SSH brute force  
-- Mirai exploitation  
-- HTTP directory traversal  
-- Suspicious User-Agent strings  
+# 🎯 Project Objectives
+- Deploy a fully functional T-Pot honeypot on cloud infrastructure  
+- Capture high-volume malicious traffic (botnets + manual attacks)  
+- Analyze attacker TTPs using Suricata + Elastic Stack  
+- Identify IOCs (IPs, User-Agents, ports, honeypot interactions)  
+- Map findings to MITRE ATT&CK  
+- Produce a structured Threat Intelligence Report  
 
 ---
 
-## 🧪 MITRE ATT&CK Mapping
+# ⚙️ Deployment Overview
+The honeypot was deployed using **T-Pot 24.x**, which bundles 20+ honeypots, NSM tooling, and Elastic Stack integrations.  
+Once deployed, T-Pot automatically collects, processes, and visualizes attack telemetry.
 
+---
+
+# 🧩 **Core System Services**
+Below is a curated summary of the services essential to this project.
+
+### **System Services**
+- **SSH** – Remote secure access into the host  
+- **NGINX** – Reverse proxy securing access to dashboards & tools  
+
+### **Elastic Stack**
+- **Elasticsearch** — Stores all honeypot events  
+- **Logstash** — Normalizes, parses and forwards data  
+- **Kibana** — Dashboards for analysis & visualization  
+
+### **Tools**
+- **CyberChef** — Data decoding & transformation  
+- **Elasticvue** — Elasticsearch cluster browser  
+- **Attack Map** — Real-time global attack visualization  
+- **Spiderfoot** — OSINT automation for enrichment  
+
+### **Network Security Monitoring (NSM)**
+- **Suricata** — IDS/IPS generating signatures & alerts  
+- **P0f** — Passive OS fingerprinting  
+- **Fatt** — Network metadata extraction from PCAP  
+
+### **Honeypots Included**
+A curated subset of T-Pot’s 23 honeypots:
+- Cowrie  
+- Dionaea  
+- Log4Pot  
+- Heralding  
+- Honeytrap  
+- ElasticPot  
+- Mailoney  
+- ADBHoney  
+(Full list available in T-Pot docs.)
+
+These honeypots simulate multiple protocols (SSH, Telnet, SMB, SQL, HTTP, ICS/SCADA, etc.) to attract diverse attacks.
+
+---
+
+# 🔌 Required Ports (Summary)
+These are the key ports used in the deployment:
+
+| Port | Protocol | Purpose |
+|------|----------|---------|
+| 64295 | tcp | SSH access to host |
+| 64297 | tcp | T-Pot Web UI via NGINX |
+| 64294 | tcp | Sensor → Hive data forwarding |
+| 80, 443 | tcp | Web services & dashboards |
+| 21, 22, 23, 25 | tcp | Honeypot services (FTP/SSH/Telnet/SMTP) |
+| 3306, 1433 | tcp | Database honeypots |
+| 5060 | udp/tcp | SIP honeypots |
+| 8080, 8443 | tcp | Web application honeypots |
+
+> Ports depend on which honeypots are active. Above list includes only those relevant to captured traffic.
+
+---
+
+# 🔑 Accessing the Environment
+
+### **SSH Access**
+```bash
+ssh -l <OS_USERNAME> -p 64295 <your-ip>
+```
+
+### **Web UI**
+```
+https://<your-ip>:64297
+```
+
+Provides:
+- Kibana  
+- Attack Map  
+- CyberChef  
+- Elasticvue  
+- Spiderfoot  
+
+---
+
+# 📊 Kibana Dashboards
+Kibana provides:
+- Attack heatmaps  
+- Suricata alert histograms  
+- Honeypot interaction timelines  
+- Username/password tagclouds  
+- Botnet scanning behavior  
+- Attacker country distribution  
+- Port-based attack histograms  
+
+These dashboards were used to identify:
+- Brute-force patterns  
+- Password spraying  
+- Mirai-like repeating sequences  
+- Reconnaissance bursts  
+- High-noise botnet signatures  
+
+---
+
+# 🌍 Attack Map
+The **Attack Map** provides:
+- Live source IPs  
+- Geo-location of attackers  
+- Protocol targeted  
+- Honeypot triggered  
+- Attack frequency  
+
+This helped differentiate:
+- **Automated botnets** (fast, repetitive, identical payloads)  
+- **Human attackers** (slow, selective probing)  
+
+---
+
+# 🔍 Threat Intelligence & Findings
+
+### **Top Observed Behaviors**
+- High-volume SSH brute force (Mirai-derived)
+- Telnet credential spraying targeting IoT devices  
+- Distributed scanning from cloud ASNs  
+- Web exploit attempts on port 80/443  
+- Repeated exploitation attempts targeting SMB  
+
+### **IOC Extraction**
+Extracted:
+- Malicious IPs  
+- Suspicious User-Agents  
+- Suricata signature IDs (SIDs)  
+- Frequent ports & protocols  
+
+IOC files included:
+- `ioc-ips.txt`  
+- `ioc-useragents.txt`  
+- `ioc-suricata-sids.txt`  
+
+### **MITRE ATT&CK Mapping**
 | Behavior | Technique |
-|---------|-----------|
-| SSH brute force | T1110 |
-| Automated botnet scanning | T1046 |
-| HTTP exploit attempts | T1190 |
-| Reconnaissance sweeps | T1595 |
+|----------|-----------|
+| Brute Force | T1110 |
+| Port Scanning | T1046 |
+| Exploit Public-Facing App | T1190 |
+| Active Scanning | T1595 |
+| Remote Service Attempts | T1021 |
 
 ---
 
-## 📈 Sample Findings
+# 📘 Threat Intelligence Report (Full)
+See:  
+```
+/Reports/Threat_Intel_Report.md
+```
 
-- Multiple Mirai botnet clusters consistently targeting ports 22/23  
-- High-volume scanning from compromised IoT devices  
-- Suricata signatures triggered by inbound exploitation payloads  
-- Attack patterns repeating every 5–10 minutes  
-
----
-
-## 📁 Repository Structure
-
-/Screenshots  
-   kibana-dashboard.png  
-   suricata-alerts.png  
-   mirai-pattern.png  
-
-/IOCs  
-   ioc-ips.txt  
-   ioc-useragents.txt  
-   ioc-suricata-sids.txt  
-
-/Reports  
-   Threat_Intel_Report.pdf  
-
-README.md
+Contains:
+- Attack summary  
+- Botnet pattern analysis  
+- IOCs  
+- MITRE mapping  
+- Recommendations  
 
 ---
 
-## 🧠 Key Learnings
+# 🧠 Learning Outcomes
+From this project I gained hands-on experience in:
 
-- How real attackers behave on the internet  
-- How botnets cycle through global targets  
-- How Suricata logs + Kibana dashboards help identify TTPs  
-- Operational use of multi-honeypot platforms  
-- How to extract IOCs and map activity to MITRE ATT&CK  
-- Fundamentals of threat intelligence reporting  
+- Deploying multi-honeypot environments  
+- Investigating attacker telemetry in real-time  
+- Using Suricata for signature-based detection  
+- Building dashboards & correlations in Kibana  
+- Performing triage using OSINT tools  
+- Extracting & documenting IOCs  
+- Translating observations into a threat intel report  
 
 ---
+
+# 📁 Repository Structure
+```
+/Reports
+    Threat_Intel_Report.md
+
+/IOCs
+    ioc-ips.txt
+    ioc-useragents.txt
+    ioc-suricata-sids.txt
+
+/images
+    tpot-landing.png
+    tpot-services.png
+    kibana-dashboard.png
+    attack-map.png
+```
+
+---
+
+# 🏁 Final Notes
+T-Pot allowed me to capture **real-world internet attack traffic** and transform it into actionable threat intelligence — bridging the gap between theory and practical security monitoring.
+
+
 
 ## 📬 Contact
 
-LinkedIn: linkedin.com/in/Anirudh-Mehandru
+LinkedIn: linkedin.com/in/anirudh-mehandru
