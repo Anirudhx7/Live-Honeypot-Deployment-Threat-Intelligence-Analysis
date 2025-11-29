@@ -1,0 +1,15 @@
+45.9.148.212 | AS9009 M247 Europe | Romania | High-volume SSH brute force | Mirai cluster | Confidence: High
+185.255.96.44 | AS205555 | Netherlands | Botnet scanning (TCP 23/2323) | Gafgyt family | Confidence: High
+198.98.51.104 | AS8100 QuadraNet | US | Masscan-style sweeps | General recon | Confidence: High
+128.199.147.187 | AS14061 Digital Ocean | Singapore | HTTP exploit attempts | Web scanners | Confidence: Medium
+103.146.203.82 | AS133296 LayerHost | India | Telnet credential stuffing | IoT botnet | Confidence: High
+222.186.30.92 | China Unicom | China | SSH brute force | Automated bot | Confidence: High
+176.111.173.40 | AS200019 Global Layer | Netherlands | Mixed SSH + SQL probing | Recon toolkit | Confidence: Medium
+91.132.137.234 | AS208294 Scaleway | France | CVE exploit attempts | Web exploit kit | Confidence: Medium
+80.82.77.139 | AS50340 BlazingFast | Ukraine | High frequency scanning | C2 infra traffic | Confidence: High
+118.24.150.34 | Tencent Cloud | China | Mirai propagation | IoT botnet | Confidence: High
+139.162.71.42 | Linode | Japan | SSH/HTTP hybrid scanning | Recon | Confidence: Medium
+185.219.81.90 | AS209533 | Russia | RDP brute force | Credential harvesting | Confidence: High
+43.154.58.112 | Tencent Cloud | China | Web exploit attempts | PHP exploit kits | Confidence: High
+170.210.201.24 | Telecom Argentina | Argentina | Worm-like scanning | Unknown family | Confidence: Medium
+193.93.62.146 | AS203727 | Bulgaria | Credential stuffing | Botnet node | Confidence: High
