@@ -1,5 +1,11 @@
 # 🐝 Live Honeypot Deployment & Threat Intelligence Analysis  
-**T-Pot | Suricata | Elastic Stack | OSINT | Botnet Analysis**
+
+![T-Pot](https://img.shields.io/badge/T--Pot-Honeypot-E20074?style=flat&logo=deutschetelekom&logoColor=white)
+![Suricata](https://img.shields.io/badge/Suricata-IDS%2FIPS-EF3B24?style=flat&logo=target&logoColor=white)
+![Elastic Stack](https://img.shields.io/badge/Elastic_Stack-SIEM-005571?style=flat&logo=elastic&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containers-2496ED?style=flat&logo=docker&logoColor=white)
+![CyberChef](https://img.shields.io/badge/CyberChef-Decoding-009639?style=flat&logo=gnu&logoColor=white)
+![OSINT](https://img.shields.io/badge/OSINT-Intelligence-2e2e2e?style=flat&logo=open-source-initiative&logoColor=white)
 
 A cloud-hosted T-Pot honeypot capturing **20,000+ real-world intrusion attempts** in 48 hours.  
 This project focuses on attacker behavior, botnet activity, network telemetry, and threat intelligence enrichment through NSM tools and the Elastic Stack.
